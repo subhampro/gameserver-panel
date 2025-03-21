@@ -1,4 +1,8 @@
-assets
-assets/*
-!assets/svgs
-!assets/svgs/*.svg
+# Exclude default assets
+assets/manifest.json
+assets/*.js
+assets/*.js.map
+
+# Include all custom theme assets
+!assets/
+!assets/*
