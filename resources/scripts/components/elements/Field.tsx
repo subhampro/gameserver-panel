@@ -19,7 +19,7 @@ const Field = forwardRef<HTMLInputElement, Props>(
             {({ field, form: { errors, touched } }: FieldProps) => (
                 <div>
                     {label && (
-                        <Label htmlFor={id} isLight={light}>
+                        <Label htmlFor={id} isLight={light} style={{ color: 'white', fontWeight: 'bold' }}>
                             {label}
                         </Label>
                     )}

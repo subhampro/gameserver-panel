@@ -99,7 +99,8 @@ const RecaptchaContainer = styled.div`
 
 const StyledField = styled(Field)`
     & > label {
-        ${tw`text-gray-200 font-semibold`};
+        ${tw`text-white font-semibold`};
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     
     & > div > input {
@@ -172,6 +173,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                         label={'Username or Email'} 
                         name={'username'} 
                         disabled={isSubmitting}
+                        css={tw`[&>label]:!text-white [&>label]:!font-bold`}
                     />
                     <InputContainer>
                         <StyledField 
@@ -180,6 +182,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             label={'Password'} 
                             name={'password'} 
                             disabled={isSubmitting}
+                            css={tw`[&>label]:!text-white [&>label]:!font-bold`}
                         />
                     </InputContainer>
                     <div css={tw`mt-8`}>

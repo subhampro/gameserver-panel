@@ -87,7 +87,7 @@ const DividerText = styled.span`
 `;
 
 const Description = styled.p`
-    ${tw`mt-1 text-sm text-neutral-400`};
+    ${tw`mt-1 text-sm text-gray-300`};
 `;
 
 const RecaptchaContainer = styled.div`
@@ -96,7 +96,8 @@ const RecaptchaContainer = styled.div`
 
 const StyledField = styled(Field)`
     & > label {
-        ${tw`text-gray-200 font-semibold`};
+        ${tw`text-white font-semibold`};
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
     
     & > div > input {
@@ -160,7 +161,7 @@ export default () => {
         >
             {({ isSubmitting, setSubmitting, submitForm }) => (
                 <LoginFormContainer title={'Reset Password'} css={tw`w-full flex`}>
-                    <Description>
+                    <Description css={tw`!text-white`}>
                         Enter your account email address to receive instructions on resetting your password.
                     </Description>
                     <div css={tw`mt-6`}>
@@ -169,6 +170,7 @@ export default () => {
                             label={'Email Address'}
                             name={'email'}
                             type={'email'}
+                            css={tw`[&>label]:!text-white [&>label]:!font-bold`}
                         />
                     </div>
                     <div css={tw`mt-8`}>
