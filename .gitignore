@@ -27,10 +27,7 @@ coverage.xml
 resources/lang/locales.js
 /.phpunit.result.cache
 
-/public/build
-/public/hot
 result
-docker-compose.yaml
 release
 
 /storage/*.key
