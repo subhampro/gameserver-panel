@@ -4,7 +4,8 @@ A Custom Game Server Panel where you can Host Discord bot and all You need With 
 
 Based on Pterodactyl Panel with custom modifications and themes.
 
-![Image](https://i.imgur.com/AFjHGBr.png)
+![image](https://github.com/user-attachments/assets/1392e885-cce6-4e7b-b1e5-b14b7feddeed)
+
 
 ## Features
 
