@@ -1,0 +1,38 @@
+debug: false
+uuid: your_node_id_here
+token_id: your_token_id_here
+token: your_token_here
+api:
+  host: 0.0.0.0
+  port: 8080
+  ssl:
+    enabled: false
+    cert: /etc/letsencrypt/live/your-wings-domain.com/fullchain.pem
+    key: /etc/letsencrypt/live/your-wings-domain.com/privkey.pem
+  upload_limit: 100
+
+remote: https://panel.yourdomain.com
+
+system:
+  data: /var/lib/pterodactyl/volumes
+  sftp:
+    bind_port: 2022
+  tmp_directory: /tmp/pterodactyl
+  username: pterodactyl
+  
+allowed_mounts: []
+allowed_origins: []
+allowed_sftp_hosts: []
+
+docker:
+  socket: /var/run/docker.sock
+  autoupdate_images: true
+  network:
+    name: pterodactyl_network
+    interfaces:
+      v4:
+        subnet: 172.18.0.0/16
+        gateway: 172.18.0.1
+      v6:
+        subnet: fdba:17c8:6c94::/64
+        gateway: fdba:17c8:6c94::1 

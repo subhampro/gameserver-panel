@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: pterodactyl_database
+    image: mariadb:10.5
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "your_root_password_here"
+      MYSQL_DATABASE: "panel"
+      MYSQL_USER: "pterodactyl"
+      MYSQL_PASSWORD: "your_password_here"
+    ports:
+      - "3306:3306"
+    networks:
+      - pterodactyl_network
+
+  cache:
+    container_name: pterodactyl_cache
+    image: redis:alpine
+    restart: always
+    networks:
+      - pterodactyl_network
+
+  panel:
+    container_name: pterodactyl_panel
+    image: ghcr.io/pterodactyl/panel:latest
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - database
+      - cache
+    environment:
+      - APP_URL=https://panel.yourdomain.com
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_DATABASE=panel
+      - DB_USERNAME=pterodactyl
+      - DB_PASSWORD=your_password_here
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_DRIVER=redis
+      - REDIS_HOST=cache
+      - APP_TIMEZONE=Asia/Kolkata
+      - APP_ENVIRONMENT_ONLY=false
+    volumes:
+      - ./:/app/
+    networks:
+      - pterodactyl_network
+
+  wings:
+    container_name: pterodactyl_wings
+    image: ghcr.io/pterodactyl/wings:latest
+    restart: always
+    ports:
+      - "8080:8080"
+      - "2022:2022"
+    tty: true
+    environment:
+      - TZ=Asia/Kolkata
+      - WINGS_UID=988
+      - WINGS_GID=988
+      - WINGS_USERNAME=pterodactyl
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./wings/config.yml:/etc/pterodactyl/config.yml
+      - ./wings/:/var/lib/pterodactyl/
+    networks:
+      - pterodactyl_network
+
+networks:
+  pterodactyl_network:
+    driver: bridge 

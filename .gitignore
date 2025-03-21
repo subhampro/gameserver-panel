@@ -2,6 +2,7 @@
 *.DS_Store*
 !.env.ci
 !.env.example
+!*.example
 .env*
 .vagrant/*
 .vscode/*
@@ -22,6 +23,7 @@ public/assets/manifest.json
 # Remove if we ever put the Dockerfile in the repo
 .dockerignore
 docker-compose.yml
+!docker-compose.example.yml
 
 # for image related files
 misc
@@ -34,6 +36,7 @@ resources/lang/locales.js
 /public/hot
 result
 docker-compose.yaml
+!docker-compose.example.yaml
 release
 
 /storage/*.key
