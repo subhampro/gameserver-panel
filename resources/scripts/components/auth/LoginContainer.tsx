@@ -97,6 +97,16 @@ const RecaptchaContainer = styled.div`
     ${tw`absolute bottom-0 left-0 z-0 pointer-events-none opacity-0`};
 `;
 
+const StyledField = styled(Field)`
+    & > label {
+        ${tw`text-gray-200 font-semibold`};
+    }
+    
+    & > div > input {
+        ${tw`bg-neutral-800 border-neutral-700 text-neutral-200 hover:border-indigo-500 focus:border-indigo-500 transition-all duration-300`};
+    }
+`;
+
 const LoginContainer = ({ history }: RouteComponentProps) => {
     const ref = useRef<Reaptcha>(null);
     const [token, setToken] = useState('');
@@ -156,22 +166,20 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
         >
             {({ isSubmitting, setSubmitting, submitForm }) => (
                 <LoginFormContainer title={'Welcome Back'} css={tw`w-full flex`}>
-                    <Field 
+                    <StyledField 
                         light 
                         type={'text'} 
                         label={'Username or Email'} 
                         name={'username'} 
                         disabled={isSubmitting}
-                        css={tw`bg-neutral-800 border-neutral-700 text-neutral-200 hover:border-indigo-500 focus:border-indigo-500 transition-all duration-300`}
                     />
                     <InputContainer>
-                        <Field 
+                        <StyledField 
                             light 
                             type={'password'} 
                             label={'Password'} 
                             name={'password'} 
                             disabled={isSubmitting}
-                            css={tw`bg-neutral-800 border-neutral-700 text-neutral-200 hover:border-indigo-500 focus:border-indigo-500 transition-all duration-300`}
                         />
                     </InputContainer>
                     <div css={tw`mt-8`}>

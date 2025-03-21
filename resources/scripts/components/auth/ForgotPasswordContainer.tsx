@@ -94,6 +94,16 @@ const RecaptchaContainer = styled.div`
     ${tw`absolute bottom-0 left-0 z-0 pointer-events-none opacity-0`};
 `;
 
+const StyledField = styled(Field)`
+    & > label {
+        ${tw`text-gray-200 font-semibold`};
+    }
+    
+    & > div > input {
+        ${tw`bg-neutral-800 border-neutral-700 text-neutral-200 hover:border-indigo-500 focus:border-indigo-500 transition-all duration-300`};
+    }
+`;
+
 export default () => {
     const ref = useRef<Reaptcha>(null);
     const [token, setToken] = useState('');
@@ -154,12 +164,11 @@ export default () => {
                         Enter your account email address to receive instructions on resetting your password.
                     </Description>
                     <div css={tw`mt-6`}>
-                        <Field
+                        <StyledField
                             light
                             label={'Email Address'}
                             name={'email'}
                             type={'email'}
-                            css={tw`bg-neutral-800 border-neutral-700 text-neutral-200 hover:border-indigo-500 focus:border-indigo-500 transition-all duration-300`}
                         />
                     </div>
                     <div css={tw`mt-8`}>

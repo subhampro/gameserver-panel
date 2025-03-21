@@ -134,7 +134,7 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
             <FormBox>
                 <LogoContainer>
                     <img 
-                        src={'https://prohostvps.com/images/logo.png'} 
+                        src={'https://raw.githubusercontent.com/subhampro/gameserver-panel/refs/heads/main/public/assets/svgs/host.webp'} 
                         css={tw`block w-48 md:w-64 mx-auto`} 
                         alt="PROHostVPS Logo"
                     />
