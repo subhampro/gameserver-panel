@@ -1,14 +1,10 @@
 /vendor/
 *.DS_Store*
-!.env.ci
-!.env.example
-!*.example
-.env*
+.env
 .vagrant/*
 .vscode/*
 storage/framework/*
 /.idea/
-/nbproject
 /.direnv
 
 /node_modules/
@@ -17,7 +13,6 @@ _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
 .yarn
-public/assets/manifest.json
 
 # For local development with docker
 # Remove if we ever put the Dockerfile in the repo
@@ -36,7 +31,6 @@ resources/lang/locales.js
 /public/hot
 result
 docker-compose.yaml
-!docker-compose.example.yaml
 release
 
 /storage/*.key
